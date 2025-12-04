@@ -359,7 +359,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 4rem 0;
+            margin: 4rem 0 3rem;
             gap: 2rem;
         }
 
@@ -375,6 +375,90 @@
             color: var(--gold-light);
             font-style: italic;
             white-space: nowrap;
+        }
+
+        /* Two Paths */
+        .two-paths {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .path-card {
+            background: linear-gradient(135deg, var(--velvet) 0%, var(--smoke) 100%);
+            border: 1px solid var(--slate);
+            border-radius: 12px;
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .path-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at top right, rgba(255,255,255,0.03) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .path-card.extraction {
+            border-color: var(--gold-dark);
+        }
+
+        .path-card.preservation {
+            border-color: var(--emerald);
+        }
+
+        .path-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .path-icon {
+            font-size: 1.5rem;
+        }
+
+        .path-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: var(--cream);
+        }
+
+        .path-desc {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .path-flow {
+            font-size: 0.75rem;
+            color: var(--champagne);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.25rem;
+            align-items: center;
+        }
+
+        .path-flow span {
+            background: rgba(255,255,255,0.08);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        .paths-tagline {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-style: italic;
         }
 
         /* Gateways Section */
@@ -445,6 +529,11 @@
             border-color: var(--emerald);
         }
 
+        .gateway-card.gca-gateway {
+            border-color: #8B4513;
+        }
+        .gateway-card.gca-gateway:hover { border-color: #A0522D; box-shadow: 0 15px 50px rgba(0,0,0,0.3), 0 0 30px rgba(139, 69, 19, 0.4); }
+
         .gateway-header {
             display: flex;
             align-items: center;
@@ -466,6 +555,7 @@
         .gateway-icon.store { background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-light) 100%); }
         .gateway-icon.nextheir { background: linear-gradient(135deg, var(--burgundy-dark) 0%, var(--burgundy) 100%); }
         .gateway-icon.mineraltrace { background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-light) 100%); }
+        .gateway-icon.gca { background: linear-gradient(135deg, #5C3D2E 0%, #8B4513 100%); }
 
         .gateway-title {
             font-family: 'Cormorant Garamond', serif;
@@ -572,6 +662,7 @@
         .plug-tag.nextheir { background: var(--burgundy-dark); color: var(--cream); }
         .plug-tag.offset { background: var(--emerald); color: var(--cream); }
         .plug-tag.store { background: var(--gold-dark); color: var(--noir); }
+        .plug-tag.gca { background: #8B4513; color: var(--cream); }
 
         /* Tagline Section */
         .tagline-section {
@@ -698,6 +789,10 @@
             .audience-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+
+            .two-paths {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 600px) {
@@ -708,6 +803,12 @@
             .footer-products {
                 flex-direction: column;
                 gap: 1rem;
+            }
+
+            .chain-divider-text {
+                font-size: 0.9rem;
+                white-space: normal;
+                text-align: center;
             }
         }
     </style>
@@ -778,7 +879,7 @@
                         <div class="chain-icon alchemy">A</div>
                         <div class="chain-text">
                             <h4>ALCHEMY</h4>
-                            <p>Transforms to product — the sacred middle</p>
+                            <p>Transforms to product — where raw becomes precious</p>
                         </div>
                     </div>
                 </div>
@@ -799,6 +900,32 @@
                 <span class="chain-divider-text">The chain is the story. The gateways are how you enter.</span>
                 <div class="chain-divider-line"></div>
             </div>
+
+            <!-- Two Paths -->
+            <div class="two-paths">
+                <div class="path-card extraction">
+                    <div class="path-header">
+                        <span class="path-icon">⛏️</span>
+                        <h4 class="path-title">Extraction Path</h4>
+                    </div>
+                    <p class="path-desc">Mined, verified, crafted, preserved.</p>
+                    <div class="path-flow">
+                        <span>Mine</span> → <span>STRIA</span> → <span>MineralTrace</span> → <span>Alchemy</span> → <span>NextHeir</span>
+                    </div>
+                </div>
+                <div class="path-card preservation">
+                    <div class="path-header">
+                        <span class="path-icon">🌍</span>
+                        <h4 class="path-title">Preservation Path</h4>
+                    </div>
+                    <p class="path-desc">Unmined, tokenized, stewarded, rewarded.</p>
+                    <div class="path-flow">
+                        <span>Land</span> → <span>STRIA</span> → <span>CORE</span> → <span>Stewardship Value</span>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="paths-tagline">Mined or unmined. Crafted or preserved. Every path verified.</p>
         </div>
     </section>
 
@@ -817,16 +944,16 @@
                         <div class="gateway-icon offset">🌱</div>
                         <div>
                             <h3 class="gateway-title">Offset</h3>
-                            <p class="gateway-tagline">Do good. Learn. Start here.</p>
+                            <p class="gateway-tagline">Do good. Learn. Give back.</p>
                         </div>
                     </div>
-                    <p class="gateway-desc">Carbon verification, education, the book, the bracelet. The values-driven entry point for conscious consumers.</p>
+                    <p class="gateway-desc">Carbon verification, education, the book, the bracelet. The values-driven entry point for conscious consumers and corporate partners.</p>
                     <div class="gateway-serves">
                         <p class="gateway-serves-label">For</p>
                         <div class="serves-tags">
                             <span class="serves-tag">Consumers</span>
+                            <span class="serves-tag">Corporate</span>
                             <span class="serves-tag">Partners</span>
-                            <span class="serves-tag">Learners</span>
                         </div>
                     </div>
                 </div>
@@ -839,13 +966,13 @@
                             <p class="gateway-tagline">Own real assets.</p>
                         </div>
                     </div>
-                    <p class="gateway-desc">Gold, silver, goldbacks — verified and ready. The asset door for collectors and investors.</p>
+                    <p class="gateway-desc">Gold, silver, goldbacks, digital goods — verified and ready. The asset door for collectors and enthusiasts.</p>
                     <div class="gateway-serves">
                         <p class="gateway-serves-label">For</p>
                         <div class="serves-tags">
-                            <span class="serves-tag">Investors</span>
                             <span class="serves-tag">Collectors</span>
-                            <span class="serves-tag">Preppers</span>
+                            <span class="serves-tag">Enthusiasts</span>
+                            <span class="serves-tag">Corporate</span>
                         </div>
                     </div>
                 </div>
@@ -855,16 +982,16 @@
                         <div class="gateway-icon mineraltrace">⛏️</div>
                         <div>
                             <h3 class="gateway-title">MineralTrace</h3>
-                            <p class="gateway-tagline">Connect. Transact. Invest.</p>
+                            <p class="gateway-tagline">Connect. Transact. Verify.</p>
                         </div>
                     </div>
-                    <p class="gateway-desc">B2B marketplace for mines and jewelers. Plus investment opportunities for individuals (SEC-pending).</p>
+                    <p class="gateway-desc">B2B marketplace for mines and jewelers. Verified sourcing, compliance documentation, trusted transactions.</p>
                     <div class="gateway-serves">
                         <p class="gateway-serves-label">For</p>
                         <div class="serves-tags">
                             <span class="serves-tag">Mines</span>
                             <span class="serves-tag">Jewelers</span>
-                            <span class="serves-tag">Investors</span>
+                            <span class="serves-tag">Brands</span>
                         </div>
                     </div>
                 </div>
@@ -888,6 +1015,25 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="gateway-card gca-gateway">
+                    <div class="gateway-header">
+                        <div class="gateway-icon gca">🎮</div>
+                        <div>
+                            <h3 class="gateway-title">Gold Crew Atlas</h3>
+                            <p class="gateway-tagline">Play the ground.</p>
+                        </div>
+                    </div>
+                    <p class="gateway-desc">Gaming meets mining. Real mines, real data (43-101s), virtual exploration. Mines opt in. Players discover.</p>
+                    <div class="gateway-serves">
+                        <p class="gateway-serves-label">For</p>
+                        <div class="serves-tags">
+                            <span class="serves-tag">Gamers</span>
+                            <span class="serves-tag">Mines</span>
+                            <span class="serves-tag">Enthusiasts</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -908,6 +1054,7 @@
                     <div class="audience-plugs">
                         <span class="plug-tag stria">STRIA</span>
                         <span class="plug-tag mineraltrace">MineralTrace</span>
+                        <span class="plug-tag gca">GCA</span>
                     </div>
                 </div>
                 <div class="audience-card">
@@ -954,6 +1101,8 @@
                     <h4 class="audience-name">Blockchain / Tech</h4>
                     <div class="audience-plugs">
                         <span class="plug-tag core">CORE</span>
+                        <span class="plug-tag store">Store</span>
+                        <span class="plug-tag gca">GCA</span>
                     </div>
                 </div>
                 <div class="audience-card">
@@ -965,10 +1114,20 @@
                     </div>
                 </div>
                 <div class="audience-card">
+                    <div class="audience-emoji">🎁</div>
+                    <h4 class="audience-name">Corporate Gifts</h4>
+                    <div class="audience-plugs">
+                        <span class="plug-tag store">Store</span>
+                        <span class="plug-tag nextheir">NextHeir</span>
+                        <span class="plug-tag offset">Offset</span>
+                    </div>
+                </div>
+                <div class="audience-card">
                     <div class="audience-emoji">🤝</div>
                     <h4 class="audience-name">B2B Partners</h4>
                     <div class="audience-plugs">
                         <span class="plug-tag stria">STRIA</span>
+                        <span class="plug-tag offset">Offset</span>
                         <span class="plug-tag mineraltrace">MT</span>
                         <span class="plug-tag alchemy">Alchemy</span>
                         <span class="plug-tag nextheir">NextHeir</span>
@@ -1002,6 +1161,7 @@
             <a href="#" class="footer-product">NextHeir</a>
             <a href="#" class="footer-product">Offset</a>
             <a href="#" class="footer-product">Store</a>
+            <a href="#" class="footer-product">Gold Crew Atlas</a>
         </div>
         <p class="footer-bottom">© 2025 Element United. All rights reserved.</p>
     </footer>
