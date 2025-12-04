@@ -805,6 +805,260 @@
             position: relative;
         }
 
+        /* Layer Detail Sections */
+        .layer-section {
+            padding: 5rem 2rem;
+            position: relative;
+        }
+
+        .layer-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+        }
+
+        .layer-section.stria {
+            background: linear-gradient(180deg, var(--noir) 0%, var(--emerald) 50%, var(--noir) 100%);
+        }
+        .layer-section.stria::before {
+            background: radial-gradient(ellipse at center, var(--emerald-glow) 0%, transparent 60%);
+        }
+
+        .layer-section.core {
+            background: linear-gradient(180deg, var(--noir) 0%, var(--smoke) 50%, var(--noir) 100%);
+        }
+        .layer-section.core::before {
+            background: radial-gradient(ellipse at center, var(--gold-glow) 0%, transparent 60%);
+        }
+
+        .layer-section.mineraltrace {
+            background: linear-gradient(180deg, var(--noir) 0%, var(--emerald) 50%, var(--noir) 100%);
+        }
+        .layer-section.mineraltrace::before {
+            background: radial-gradient(ellipse at center, var(--emerald-glow) 0%, transparent 60%);
+        }
+
+        .layer-section.alchemy {
+            background: linear-gradient(180deg, var(--noir) 0%, var(--velvet) 30%, var(--smoke) 70%, var(--noir) 100%);
+        }
+        .layer-section.alchemy::before {
+            background: radial-gradient(ellipse at center, var(--gold-glow) 0%, transparent 50%);
+        }
+
+        .layer-section.nextheir {
+            background: linear-gradient(180deg, var(--noir) 0%, var(--burgundy-dark) 50%, var(--noir) 100%);
+        }
+        .layer-section.nextheir::before {
+            background: radial-gradient(ellipse at center, rgba(114, 47, 55, 0.4) 0%, transparent 60%);
+        }
+
+        .layer-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .layer-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .layer-icon.stria {
+            background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-light) 100%);
+            border: 2px solid var(--emerald-light);
+            color: var(--cream);
+            box-shadow: 0 0 30px var(--emerald-glow);
+        }
+
+        .layer-icon.core {
+            background: var(--smoke);
+            border: 2px solid var(--gold-light);
+            color: var(--gold-light);
+            box-shadow: 0 0 30px var(--gold-glow);
+        }
+
+        .layer-icon.mineraltrace {
+            background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-light) 100%);
+            color: var(--cream);
+            box-shadow: 0 0 30px var(--emerald-glow);
+        }
+
+        .layer-icon.alchemy {
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-light) 100%);
+            color: var(--noir);
+            box-shadow: 0 0 30px var(--gold-glow);
+        }
+
+        .layer-icon.nextheir {
+            background: linear-gradient(135deg, var(--burgundy-dark) 0%, var(--burgundy) 100%);
+            color: var(--cream);
+            box-shadow: 0 0 30px rgba(114, 47, 55, 0.5);
+        }
+
+        .layer-title-group h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: var(--cream);
+            margin-bottom: 0.25rem;
+        }
+
+        .layer-title-group p {
+            font-size: 1.1rem;
+            color: var(--gold-light);
+            font-style: italic;
+        }
+
+        .layer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            position: relative;
+        }
+
+        .layer-description {
+            font-size: 1rem;
+            color: var(--champagne);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .layer-capabilities {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .capability {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            background: rgba(255,255,255,0.03);
+            border-radius: 8px;
+            border-left: 3px solid var(--gold-dark);
+        }
+
+        .layer-section.stria .capability { border-left-color: var(--emerald-light); }
+        .layer-section.core .capability { border-left-color: var(--gold-light); }
+        .layer-section.mineraltrace .capability { border-left-color: var(--emerald-light); }
+        .layer-section.alchemy .capability { border-left-color: var(--gold-light); }
+        .layer-section.nextheir .capability { border-left-color: var(--burgundy); }
+
+        .capability-icon {
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .capability-text {
+            font-size: 0.9rem;
+            color: var(--cream);
+        }
+
+        .layer-serves h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--cream);
+            margin-bottom: 1rem;
+        }
+
+        .serves-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+        }
+
+        .serve-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            background: linear-gradient(135deg, var(--velvet) 0%, var(--smoke) 100%);
+            border: 1px solid var(--slate);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .serve-item:hover {
+            border-color: var(--gold-dark);
+            transform: translateX(4px);
+        }
+
+        .serve-emoji {
+            font-size: 1.25rem;
+        }
+
+        .serve-text {
+            font-size: 0.85rem;
+            color: var(--cream);
+        }
+
+        .layer-partners {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .layer-partners .section-header {
+            margin-bottom: 2rem;
+        }
+
+        .layer-partners .section-title {
+            font-size: 1.8rem;
+        }
+
+        .layer-section.stria .partner-card {
+            background: linear-gradient(135deg, var(--velvet) 0%, var(--emerald) 100%);
+            border-color: var(--emerald);
+        }
+        .layer-section.stria .partner-card:hover { border-color: var(--emerald-light); box-shadow: 0 10px 30px rgba(0,0,0,0.3), 0 0 20px var(--emerald-glow); }
+
+        .layer-section.core .partner-card {
+            background: linear-gradient(135deg, var(--velvet) 0%, var(--smoke) 100%);
+            border-color: var(--gold-dark);
+        }
+        .layer-section.core .partner-card:hover { border-color: var(--gold-light); box-shadow: 0 10px 30px rgba(0,0,0,0.3), 0 0 20px var(--gold-glow); }
+
+        .layer-section.mineraltrace .partner-card {
+            background: linear-gradient(135deg, var(--velvet) 0%, var(--emerald) 100%);
+            border-color: var(--emerald);
+        }
+        .layer-section.mineraltrace .partner-card:hover { border-color: var(--emerald-light); box-shadow: 0 10px 30px rgba(0,0,0,0.3), 0 0 20px var(--emerald-glow); }
+
+        .layer-section.alchemy .partner-card {
+            background: linear-gradient(135deg, var(--velvet) 0%, var(--smoke) 100%);
+            border-color: var(--gold-dark);
+        }
+        .layer-section.alchemy .partner-card:hover { border-color: var(--gold-light); box-shadow: 0 10px 30px rgba(0,0,0,0.3), 0 0 20px var(--gold-glow); }
+
+        @media (max-width: 900px) {
+            .layer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .layer-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .serves-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .tagline-section::before {
             content: '';
             position: absolute;
@@ -1078,6 +1332,536 @@
         </div>
     </section>
 
+    <!-- STRIA Section -->
+    <section class="section layer-section stria">
+        <div class="container">
+            <div class="layer-header">
+                <div class="layer-icon stria">S</div>
+                <div class="layer-title-group">
+                    <h2>STRIA</h2>
+                    <p>Certifies at source</p>
+                </div>
+            </div>
+
+            <div class="layer-content">
+                <div class="layer-left">
+                    <p class="layer-description">The verification layer. STRIA certifies ethical origin, environmental compliance, and chain of custody at the source. Before anything moves, STRIA says it's real, it's clean, it's verified.</p>
+                    <div class="layer-capabilities">
+                        <div class="capability">
+                            <span class="capability-icon">✓</span>
+                            <span class="capability-text">Mine onboarding & certification</span>
+                        </div>
+                        <div class="capability">
+                            <span class="capability-icon">✓</span>
+                            <span class="capability-text">ESG compliance verification</span>
+                        </div>
+                        <div class="capability">
+                            <span class="capability-icon">✓</span>
+                            <span class="capability-text">Chain of custody documentation</span>
+                        </div>
+                        <div class="capability">
+                            <span class="capability-icon">✓</span>
+                            <span class="capability-text">In-ground asset certification</span>
+                        </div>
+                        <div class="capability">
+                            <span class="capability-icon">✓</span>
+                            <span class="capability-text">Ethical extraction standards</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="layer-right">
+                    <div class="layer-serves">
+                        <h4>Who Uses STRIA Data</h4>
+                        <div class="serves-grid">
+                            <div class="serve-item">
+                                <span class="serve-emoji">⛏️</span>
+                                <span class="serve-text">Mines seeking certification</span>
+                            </div>
+                            <div class="serve-item">
+                                <span class="serve-emoji">🏦</span>
+                                <span class="serve-text">Banks (ESG lending)</span>
+                            </div>
+                            <div class="serve-item">
+                                <span class="serve-emoji">🛡️</span>
+                                <span class="serve-text">Insurers (risk assessment)</span>
+                            </div>
+                            <div class="serve-item">
+                                <span class="serve-emoji">📊</span>
+                                <span class="serve-text">Compliance platforms</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layer-partners">
+                <div class="section-header">
+                    <p class="section-label">STRIA Network</p>
+                    <h3 class="section-title">Partner Network</h3>
+                </div>
+                <div class="partners-grid">
+                    <div class="partner-card">
+                        <div class="partner-emoji">⛏️</div>
+                        <h4 class="partner-name">Mining Operations</h4>
+                        <p class="partner-desc">Get certified. Prove compliance. Access premium markets.</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-emoji">📋</div>
+                        <h4 class="partner-name">ESG Auditors</h4>
+                        <p class="partner-desc">Verify standards. Issue certifications. Feed the registry.</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-emoji">🏦</div>
+                        <h4 class="partner-name">Banks & Lenders</h4>
+                        <p class="partner-desc">ESG data for lending decisions. Compliance verification.</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-emoji">🛡️</div>
+                        <h4 class="partner-name">Insurance Companies</h4>
+                        <p class="partner-desc">Risk assessment. Claims verification. Provenance data.</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-emoji">🏛️</div>
+                        <h4 class="partner-name">Mining Associations</h4>
+                        <p class="partner-desc">Industry standards. Member certification. Collective compliance.</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-emoji">🌍</div>
+                        <h4 class="partner-name">NGOs & Watchdogs</h4>
+                        <p class="partner-desc">Transparency partners. Verification oversight. Trust anchors.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE Section -->
+    <section class="section layer-section core">
+        <div class="container">
+            <div class="layer-header">
+                <div class="layer-icon core">C</div>
+                <div class="layer-title-group">
+                    <h2>CORE</h2>
+                    <p>Tokenizes assets</p>
+                </div>
+            </div>
+
+            <div class="layer-content">
+                <div class="layer-left">
+                    <p class="layer-description">The tokenization engine. CORE creates immutable digital records for physical assets — mined or unmined. Land stewards get value without extraction. Every asset gets a verifiable digital twin.</p>
+                    <div class="layer-capabilities">
+                        <div class="capability">
+                            <span class="capability-icon">✓</span>
+                            <span class="capability-text">Asset tokenization (mined & unmined)</span>
+                        </div>
+                        <div class="capability">
+                            <span class="capability-icon">✓</span>
+                            <span class="capability-text">Immutable blockchain records</span>
+                        </div>
+                        <div class="capability">
+                            <span class="capability-icon">✓</span>
+                            <span class="capability-text">In-ground asset valuation</span>
+                        </div>
+                        <div class="capability">
+                            <span class="capability-icon">✓</span>
+                            <span class="capability-text">Digital goods creation</span>
+                        </div>
+                        <div class="capability">
+                            <span class="capability-icon">✓</span>
+                            <span class="capability-text">Stewardship rewards</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="layer-right">
+                    <div class="layer-serves">
+                        <h4>Who Uses CORE</h4>
+                        <div class="serves-grid">
+                            <div class="serve-item">
+                                <span class="serve-emoji">🌍</span>
+                                <span class="serve-text">Land stewards</span>
+                            </div>
+                            <div class="serve-item">
+                                <span class="serve-emoji">🪶</span>
+                                <span class="serve-text">Indigenous communities</span>
+                            </div>
+                            <div class="serve-item">
+                                <span class="serve-emoji">🔗</span>
+                                <span class="serve-text">Blockchain developers</span>
+                            </div>
+                            <div class="serve-item">
+                                <span class="serve-emoji">🎮</span>
+                                <span class="serve-text">Digital goods buyers</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layer-partners">
+                <div class="section-header">
+                    <p class="section-label">CORE Network</p>
+                    <h3 class="section-title">Partner Network</h3>
+                </div>
+                <div class="partners-grid">
+                    <div class="partner-card">
+                        <div class="partner-emoji">🌍</div>
+                        <h4 class="partner-name">Land Stewards</h4>
+                        <p class="partner-desc">Tokenize unmined assets. Get value without extraction.</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-emoji">🪶</div>
+                        <h4 class="partner-name">Indigenous Communities</h4>
+                        <p class="partner-desc">Preserve land. Monetize stewardship. Protect heritage.</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-emoji">🔗</div>
+                        <h4 class="partner-name">Blockchain Developers</h4>
+                        <p class="partner-desc">Build on CORE. Integrate infrastructure. Extend the chain.</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-emoji">🌲</div>
+                        <h4 class="partner-name">Conservation Orgs</h4>
+                        <p class="partner-desc">Preservation economics. Land protection. Carbon + mineral value.</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-emoji">🎨</div>
+                        <h4 class="partner-name">Digital Creators</h4>
+                        <p class="partner-desc">Mint verified digital goods. Provenance-backed NFTs.</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-emoji">🖥️</div>
+                        <h4 class="partner-name">Tech Platforms</h4>
+                        <p class="partner-desc">API integration. White label tokenization. Infrastructure partners.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MineralTrace Section -->
+    <section class="section layer-section mineraltrace">
+        <div class="container">
+            <div class="layer-header">
+                <div class="layer-icon mineraltrace">MT</div>
+                <div class="layer-title-group">
+                    <h2>MineralTrace</h2>
+                    <p>Connects & transacts</p>
+                </div>
+            </div>
+
+            <div class="layer-content">
+                <div class="layer-left">
+                    <p class="layer-description">The B2B marketplace. MineralTrace connects STRIA-certified mines with jewelers and manufacturers. Verified sourcing, transparent transactions, compliance built in. Where supply meets demand.</p>
+                    <div class="layer-capabilities">
+                        <div class="capability">
+                            <span class="capability-icon">✓</span>
+                            <span class="capability-text">Mine-to-jeweler marketplace</span>
+                        </div>
+                        <div class="capability">
+                            <span class="capability-icon">✓</span>
+                            <span class="capability-text">Verified sourcing documentation</span>
+                        </div>
+                        <div class="capability">
+                            <span class="capability-icon">✓</span>
+                            <span class="capability-text">Transaction management</span>
+                        </div>
+                        <div class="capability">
+                            <span class="capability-icon">✓</span>
+                            <span class="capability-text">Compliance tracking</span>
+                        </div>
+                        <div class="capability">
+                            <span class="capability-icon">✓</span>
+                            <span class="capability-text">Provenance transfer</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="layer-right">
+                    <div class="layer-serves">
+                        <h4>Who Transacts on MineralTrace</h4>
+                        <div class="serves-grid">
+                            <div class="serve-item">
+                                <span class="serve-emoji">⛏️</span>
+                                <span class="serve-text">Mines (sellers)</span>
+                            </div>
+                            <div class="serve-item">
+                                <span class="serve-emoji">💍</span>
+                                <span class="serve-text">Jewelers (buyers)</span>
+                            </div>
+                            <div class="serve-item">
+                                <span class="serve-emoji">🏭</span>
+                                <span class="serve-text">Refiners & manufacturers</span>
+                            </div>
+                            <div class="serve-item">
+                                <span class="serve-emoji">👑</span>
+                                <span class="serve-text">Luxury brands</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layer-partners">
+                <div class="section-header">
+                    <p class="section-label">MineralTrace Network</p>
+                    <h3 class="section-title">Partner Network</h3>
+                </div>
+                <div class="partners-grid">
+                    <div class="partner-card">
+                        <div class="partner-emoji">⛏️</div>
+                        <h4 class="partner-name">Certified Mines</h4>
+                        <p class="partner-desc">List inventory. Find buyers. Transact with trust.</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-emoji">💍</div>
+                        <h4 class="partner-name">Jewelry Retailers</h4>
+                        <p class="partner-desc">Source verified materials. Tell the origin story.</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-emoji">🏭</div>
+                        <h4 class="partner-name">Refiners</h4>
+                        <p class="partner-desc">Process verified materials. Maintain chain of custody.</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-emoji">👑</div>
+                        <h4 class="partner-name">Luxury Brands</h4>
+                        <p class="partner-desc">Premium sourcing. Brand-safe supply chain.</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-emoji">📦</div>
+                        <h4 class="partner-name">Trading Platforms</h4>
+                        <p class="partner-desc">Integration partners. Marketplace connectivity.</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-emoji">🤝</div>
+                        <h4 class="partner-name">Industry Groups</h4>
+                        <p class="partner-desc">Collective sourcing. Standards alignment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ALCHEMY Section -->
+    <section class="section layer-section alchemy">
+        <div class="container">
+            <div class="layer-header">
+                <div class="layer-icon alchemy">A</div>
+                <div class="layer-title-group">
+                    <h2>ALCHEMY</h2>
+                    <p>Where raw becomes precious</p>
+                </div>
+            </div>
+
+            <div class="layer-content">
+                <div class="layer-left">
+                    <p class="layer-description">The transformation layer. Alchemy is where craft happens — where raw materials become jewelry, art, heirlooms. Today, it honors the makers. Tomorrow, it's the platform for AI try-ons, celeb showcases, verified auctions.</p>
+                    <div class="layer-capabilities">
+                        <div class="capability">
+                            <span class="capability-icon">✓</span>
+                            <span class="capability-text">Maker verification & showcase</span>
+                        </div>
+                        <div class="capability">
+                            <span class="capability-icon">✓</span>
+                            <span class="capability-text">Transformation documentation</span>
+                        </div>
+                        <div class="capability">
+                            <span class="capability-icon">✓</span>
+                            <span class="capability-text">Provenance-backed luxury</span>
+                        </div>
+                        <div class="capability">
+                            <span class="capability-icon">✓</span>
+                            <span class="capability-text">Premium brand partnerships</span>
+                        </div>
+                        <div class="capability">
+                            <span class="capability-icon">✓</span>
+                            <span class="capability-text">Future: AI try-ons, auctions, insurance</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="layer-right">
+                    <div class="layer-serves">
+                        <h4>Who Transforms Through Alchemy</h4>
+                        <div class="serves-grid">
+                            <div class="serve-item">
+                                <span class="serve-emoji">👑</span>
+                                <span class="serve-text">Luxury brands</span>
+                            </div>
+                            <div class="serve-item">
+                                <span class="serve-emoji">🔨</span>
+                                <span class="serve-text">Independent artisans</span>
+                            </div>
+                            <div class="serve-item">
+                                <span class="serve-emoji">🏛️</span>
+                                <span class="serve-text">Auction houses</span>
+                            </div>
+                            <div class="serve-item">
+                                <span class="serve-emoji">⭐</span>
+                                <span class="serve-text">Celebrity collections</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layer-partners">
+                <div class="section-header">
+                    <p class="section-label">Alchemy Network</p>
+                    <h3 class="section-title">Partner Network</h3>
+                </div>
+                <div class="partners-grid">
+                    <div class="partner-card">
+                        <div class="partner-emoji">👑</div>
+                        <h4 class="partner-name">Luxury Houses</h4>
+                        <p class="partner-desc">Verified luxury. Provenance as premium. The Christie's of tomorrow.</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-emoji">🔨</div>
+                        <h4 class="partner-name">Master Artisans</h4>
+                        <p class="partner-desc">Showcase craft. Document transformation. Maker recognition.</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-emoji">🏛️</div>
+                        <h4 class="partner-name">Auction Houses</h4>
+                        <p class="partner-desc">Verified auctions. Provenance guarantees. Premium resale.</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-emoji">⭐</div>
+                        <h4 class="partner-name">Celebrity Partners</h4>
+                        <p class="partner-desc">Collection showcases. Fan access. Verified authenticity.</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-emoji">🤖</div>
+                        <h4 class="partner-name">AI / Tech Partners</h4>
+                        <p class="partner-desc">Virtual try-ons. Digital showcases. Next-gen retail.</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-emoji">🛡️</div>
+                        <h4 class="partner-name">Insurance Partners</h4>
+                        <p class="partner-desc">Verified valuation. Provenance-backed coverage.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NextHeir Section -->
+    <section class="section layer-section nextheir">
+        <div class="container">
+            <div class="layer-header">
+                <div class="layer-icon nextheir">N</div>
+                <div class="layer-title-group">
+                    <h2>NextHeir</h2>
+                    <p>Preserves the story</p>
+                </div>
+            </div>
+
+            <div class="layer-content">
+                <div class="layer-left">
+                    <p class="layer-description">The legacy layer. NextHeir preserves what matters — the stories, the memories, the meaning behind precious objects. From wedding rings to memorial vaults, NextHeir ensures the story passes to the next generation.</p>
+                    <div class="layer-capabilities">
+                        <div class="capability">
+                            <span class="capability-icon">✓</span>
+                            <span class="capability-text">Digital vaults for physical items</span>
+                        </div>
+                        <div class="capability">
+                            <span class="capability-icon">✓</span>
+                            <span class="capability-text">Story & memory preservation</span>
+                        </div>
+                        <div class="capability">
+                            <span class="capability-icon">✓</span>
+                            <span class="capability-text">Inheritance management</span>
+                        </div>
+                        <div class="capability">
+                            <span class="capability-icon">✓</span>
+                            <span class="capability-text">Provenance documentation</span>
+                        </div>
+                        <div class="capability">
+                            <span class="capability-icon">✓</span>
+                            <span class="capability-text">Multi-generational transfer</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="layer-right">
+                    <div class="layer-serves">
+                        <h4>Who Preserves with NextHeir</h4>
+                        <div class="serves-grid">
+                            <div class="serve-item">
+                                <span class="serve-emoji">👨‍👩‍👧</span>
+                                <span class="serve-text">Families</span>
+                            </div>
+                            <div class="serve-item">
+                                <span class="serve-emoji">💒</span>
+                                <span class="serve-text">Couples (weddings)</span>
+                            </div>
+                            <div class="serve-item">
+                                <span class="serve-emoji">🕯️</span>
+                                <span class="serve-text">Memorial / remembrance</span>
+                            </div>
+                            <div class="serve-item">
+                                <span class="serve-emoji">💎</span>
+                                <span class="serve-text">Collectors</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layer-partners">
+                <div class="section-header">
+                    <p class="section-label">NextHeir Network</p>
+                    <h3 class="section-title">Partner Network</h3>
+                </div>
+                <div class="partners-grid">
+                    <div class="partner-card">
+                        <div class="partner-emoji">📸</div>
+                        <h4 class="partner-name">Wedding Photographers</h4>
+                        <p class="partner-desc">Capture the day. Offer the vault. Couples preserve the story.</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-emoji">💍</div>
+                        <h4 class="partner-name">Jewelry Stores</h4>
+                        <p class="partner-desc">Sell the ring. Include provenance. Legacy starts at purchase.</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-emoji">🕯️</div>
+                        <h4 class="partner-name">Funeral Homes</h4>
+                        <p class="partner-desc">Honor the life. Preserve the memory. Grief becomes legacy.</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-emoji">⚖️</div>
+                        <h4 class="partner-name">Estate Attorneys</h4>
+                        <p class="partner-desc">Plan the transfer. Document the meaning. Inheritance with story.</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-emoji">🛡️</div>
+                        <h4 class="partner-name">Insurance Agents</h4>
+                        <p class="partner-desc">Insure the asset. Verify provenance. Claims with proof.</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-emoji">⭐</div>
+                        <h4 class="partner-name">Celebrity Estates</h4>
+                        <p class="partner-desc">Manage the legacy. Preserve the icon. Fans access the story.</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-emoji">🔌</div>
+                        <h4 class="partner-name">EOL Platforms</h4>
+                        <p class="partner-desc">Tech integration. API access. End-of-life meets digital legacy.</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-emoji">🏛️</div>
+                        <h4 class="partner-name">Cultural Institutions</h4>
+                        <p class="partner-desc">Museums, archives, heritage. Preservation at scale.</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-emoji">🤝</div>
+                        <h4 class="partner-name">White Label Partners</h4>
+                        <p class="partner-desc">Your brand. Our infrastructure. NextHeir under the hood.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Gateways -->
     <section class="section gateways-section">
         <div class="container">
@@ -1281,82 +2065,6 @@
                         <span class="plug-tag alchemy">Alchemy</span>
                         <span class="plug-tag nextheir">NextHeir</span>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- NextHeir Partners -->
-    <section class="section partners-section">
-        <div class="container">
-            <div class="section-header">
-                <p class="section-label">NextHeir Distribution</p>
-                <h2 class="section-title">Partner Network</h2>
-                <p class="section-subtitle">The last mile to legacy. Partners who bring NextHeir to life's moments.</p>
-            </div>
-
-            <div class="partners-grid">
-                <div class="partner-card">
-                    <div class="partner-emoji">📸</div>
-                    <h4 class="partner-name">Wedding Photographers</h4>
-                    <p class="partner-desc">Capture the day. Offer the vault. Couples preserve the story.</p>
-                </div>
-                <div class="partner-card">
-                    <div class="partner-emoji">💍</div>
-                    <h4 class="partner-name">Jewelry Stores</h4>
-                    <p class="partner-desc">Sell the ring. Include provenance. Legacy starts at purchase.</p>
-                </div>
-                <div class="partner-card">
-                    <div class="partner-emoji">🕯️</div>
-                    <h4 class="partner-name">Funeral Homes</h4>
-                    <p class="partner-desc">Honor the life. Preserve the memory. Grief becomes legacy.</p>
-                </div>
-                <div class="partner-card">
-                    <div class="partner-emoji">⚖️</div>
-                    <h4 class="partner-name">Estate Attorneys</h4>
-                    <p class="partner-desc">Plan the transfer. Document the meaning. Inheritance with story.</p>
-                </div>
-                <div class="partner-card">
-                    <div class="partner-emoji">🛡️</div>
-                    <h4 class="partner-name">Insurance Agents</h4>
-                    <p class="partner-desc">Insure the asset. Verify provenance. Claims with proof.</p>
-                </div>
-                <div class="partner-card">
-                    <div class="partner-emoji">⭐</div>
-                    <h4 class="partner-name">Celebrity Estates</h4>
-                    <p class="partner-desc">Manage the legacy. Preserve the icon. Fans access the story.</p>
-                </div>
-                <div class="partner-card">
-                    <div class="partner-emoji">🔌</div>
-                    <h4 class="partner-name">EOL Platforms</h4>
-                    <p class="partner-desc">Tech integration. API access. End-of-life meets digital legacy.</p>
-                </div>
-                <div class="partner-card">
-                    <div class="partner-emoji">🏛️</div>
-                    <h4 class="partner-name">Cultural Institutions</h4>
-                    <p class="partner-desc">Museums, archives, heritage. Preservation at scale.</p>
-                </div>
-                <div class="partner-card">
-                    <div class="partner-emoji">🤝</div>
-                    <h4 class="partner-name">White Label Partners</h4>
-                    <p class="partner-desc">Your brand. Our infrastructure. NextHeir under the hood.</p>
-                </div>
-            </div>
-
-            <div class="partner-flow">
-                <div class="flow-box partners">
-                    <p class="flow-box-label">Partners</p>
-                    <p class="flow-box-title">Life Moments</p>
-                </div>
-                <span class="flow-arrow">→</span>
-                <div class="flow-box nextheir">
-                    <p class="flow-box-label">Platform</p>
-                    <p class="flow-box-title">NextHeir</p>
-                </div>
-                <span class="flow-arrow">→</span>
-                <div class="flow-box consumer">
-                    <p class="flow-box-label">Outcome</p>
-                    <p class="flow-box-title">Legacy Preserved</p>
                 </div>
             </div>
         </div>
