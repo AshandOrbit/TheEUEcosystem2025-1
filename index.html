@@ -216,6 +216,402 @@
             font-size: 1rem;
         }
 
+        /* System Diagram Section */
+        .system-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, var(--noir) 0%, var(--velvet) 50%, var(--noir) 100%);
+            position: relative;
+        }
+
+        .system-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, var(--gold-glow) 0%, transparent 60%);
+            opacity: 0.3;
+        }
+
+        .system-diagram {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .system-layer {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .system-node {
+            background: linear-gradient(135deg, var(--velvet) 0%, var(--smoke) 100%);
+            border: 2px solid var(--slate);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            text-align: center;
+            min-width: 130px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+        }
+
+        .system-node::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at top right, rgba(255,255,255,0.05) 0%, transparent 60%);
+            border-radius: 10px;
+            pointer-events: none;
+        }
+
+        .system-node:hover {
+            transform: translateY(-4px) scale(1.05);
+            z-index: 10;
+        }
+
+        .system-node.gateway {
+            border-color: var(--gold-dark);
+        }
+        .system-node.gateway:hover {
+            border-color: var(--gold-light);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3), 0 0 30px var(--gold-glow);
+        }
+
+        .system-node.stria {
+            border-color: var(--emerald);
+            background: linear-gradient(135deg, var(--velvet) 0%, var(--emerald) 100%);
+        }
+        .system-node.stria:hover {
+            border-color: var(--emerald-light);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3), 0 0 30px var(--emerald-glow);
+        }
+
+        .system-node.core {
+            border-color: var(--gold-dark);
+        }
+        .system-node.core:hover {
+            border-color: var(--gold-light);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3), 0 0 30px var(--gold-glow);
+        }
+
+        .system-node.mineraltrace {
+            border-color: var(--emerald);
+            background: linear-gradient(135deg, var(--velvet) 0%, var(--emerald) 100%);
+        }
+        .system-node.mineraltrace:hover {
+            border-color: var(--emerald-light);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3), 0 0 30px var(--emerald-glow);
+        }
+
+        .system-node.alchemy {
+            border-color: var(--gold);
+            background: linear-gradient(135deg, var(--velvet) 0%, var(--smoke) 100%);
+            box-shadow: 0 0 30px var(--gold-glow);
+        }
+        .system-node.alchemy:hover {
+            border-color: var(--gold-light);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3), 0 0 50px var(--gold-glow);
+        }
+
+        .system-node.nextheir {
+            border-color: var(--burgundy);
+            background: linear-gradient(135deg, var(--velvet) 0%, var(--burgundy-dark) 100%);
+        }
+        .system-node.nextheir:hover {
+            border-color: var(--burgundy);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3), 0 0 30px rgba(114, 47, 55, 0.5);
+        }
+
+        .system-node.gca {
+            border-color: #8B4513;
+            background: linear-gradient(135deg, var(--velvet) 0%, #3D2314 100%);
+        }
+        .system-node.gca:hover {
+            border-color: #A0522D;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3), 0 0 30px rgba(139, 69, 19, 0.5);
+        }
+
+        .system-node.output {
+            border-color: var(--slate);
+            background: linear-gradient(135deg, var(--smoke) 0%, var(--slate) 100%);
+        }
+        .system-node.output:hover {
+            border-color: var(--gold-dark);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .node-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .node-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: var(--cream);
+            font-weight: 500;
+        }
+
+        .node-desc {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        /* Connection arrows */
+        .system-arrows {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin: 0.25rem 0;
+            position: relative;
+        }
+
+        .arrow-down {
+            color: var(--gold-dark);
+            font-size: 1.25rem;
+            opacity: 0.7;
+            animation: pulse-arrow 2s ease-in-out infinite;
+        }
+
+        .arrow-down.emerald { color: var(--emerald-light); }
+        .arrow-down.gold { color: var(--gold-light); }
+        .arrow-down.burgundy { color: var(--burgundy); }
+
+        @keyframes pulse-arrow {
+            0%, 100% { opacity: 0.5; transform: translateY(0); }
+            50% { opacity: 1; transform: translateY(3px); }
+        }
+
+        /* Converge visual */
+        .system-converge {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0.5rem 0;
+            position: relative;
+            height: 50px;
+        }
+
+        .converge-container {
+            position: relative;
+            width: 70%;
+            height: 100%;
+        }
+
+        .converge-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .converge-lines::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 10%;
+            width: 40%;
+            height: 50%;
+            border-left: 2px solid var(--emerald-light);
+            border-bottom: 2px solid var(--emerald-light);
+            border-bottom-left-radius: 12px;
+            opacity: 0.5;
+        }
+
+        .converge-lines::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 10%;
+            width: 40%;
+            height: 50%;
+            border-right: 2px solid var(--emerald-light);
+            border-bottom: 2px solid var(--emerald-light);
+            border-bottom-right-radius: 12px;
+            opacity: 0.5;
+        }
+
+        .converge-center {
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            color: var(--gold-light);
+            font-size: 1.25rem;
+            opacity: 0.7;
+        }
+
+        /* Diverge visual */
+        .system-diverge {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0.5rem 0;
+            position: relative;
+            height: 50px;
+        }
+
+        .diverge-container {
+            position: relative;
+            width: 80%;
+            height: 100%;
+        }
+
+        .diverge-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .diverge-lines::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 5%;
+            width: 45%;
+            height: 50%;
+            border-left: 2px solid var(--burgundy);
+            border-top: 2px solid var(--burgundy);
+            border-top-left-radius: 12px;
+            opacity: 0.5;
+        }
+
+        .diverge-lines::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 5%;
+            width: 45%;
+            height: 50%;
+            border-right: 2px solid var(--burgundy);
+            border-top: 2px solid var(--burgundy);
+            border-top-right-radius: 12px;
+            opacity: 0.5;
+        }
+
+        .diverge-center {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 50%;
+            background: var(--burgundy);
+            opacity: 0.5;
+        }
+
+        .diverge-arrows {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 5%;
+        }
+
+        .diverge-arrows span {
+            color: var(--burgundy);
+            font-size: 1rem;
+            opacity: 0.7;
+        }
+
+        /* Hover info popup */
+        .system-node .node-hover-info {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--noir);
+            border: 1px solid var(--gold-dark);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 100;
+            margin-bottom: 10px;
+            pointer-events: none;
+        }
+
+        .system-node:hover .node-hover-info {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .node-hover-info p {
+            font-size: 0.75rem;
+            color: var(--champagne);
+            line-height: 1.5;
+            text-align: left;
+        }
+
+        /* System responsive */
+        @media (max-width: 900px) {
+            .system-layer {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .system-node {
+                min-width: 100px;
+                padding: 0.75rem 1rem;
+            }
+
+            .node-name {
+                font-size: 0.85rem;
+            }
+
+            .node-desc {
+                display: none;
+            }
+
+            .converge-container, .diverge-container {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .system-layer {
+                gap: 0.5rem;
+            }
+
+            .system-node {
+                min-width: 65px;
+                padding: 0.5rem;
+            }
+
+            .node-icon {
+                font-size: 1.1rem;
+            }
+
+            .node-name {
+                font-size: 0.7rem;
+            }
+
+            .system-arrows {
+                gap: 1rem;
+            }
+
+            .node-hover-info {
+                display: none;
+            }
+        }
+
         /* The Chain Section */
         .chain-section {
             background: linear-gradient(180deg, var(--noir) 0%, var(--velvet) 100%);
@@ -1234,6 +1630,170 @@
             <p class="hero-label">Trust Infrastructure</p>
             <h1 class="hero-title">The <em>Element United</em> Ecosystem</h1>
             <p class="hero-subtitle">One chain. Many doors. Verified value from source to sovereign — for everyone who touches it.</p>
+        </div>
+    </section>
+
+    <!-- System Diagram -->
+    <section class="section system-section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">The Living System</p>
+                <h2 class="section-title">How It All Connects</h2>
+                <p class="section-subtitle">Gateways feed the chain. The chain creates value. Value flows to partners, consumers, and back.</p>
+            </div>
+
+            <div class="system-diagram">
+                <!-- Layer 1: Gateways -->
+                <div class="system-layer">
+                    <div class="system-node gateway">
+                        <div class="node-icon">🌱</div>
+                        <div class="node-name">Offset</div>
+                        <div class="node-desc">Values door</div>
+                        <div class="node-hover-info">
+                            <p>Carbon verification, education, the book, the bracelet. Entry point for conscious consumers and corporate partners.</p>
+                        </div>
+                    </div>
+                    <div class="system-node gateway">
+                        <div class="node-icon">🪙</div>
+                        <div class="node-name">Store</div>
+                        <div class="node-desc">Assets door</div>
+                        <div class="node-hover-info">
+                            <p>Gold, silver, goldbacks, digital goods. The asset door for collectors, enthusiasts, and corporate gifts.</p>
+                        </div>
+                    </div>
+                    <div class="system-node gca">
+                        <div class="node-icon">🎮</div>
+                        <div class="node-name">GCA</div>
+                        <div class="node-desc">Gaming door</div>
+                        <div class="node-hover-info">
+                            <p>Gold Crew Atlas. Gaming meets mining. Real mines, real 43-101 data, virtual exploration.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Arrows down from gateways -->
+                <div class="system-arrows">
+                    <span class="arrow-down gold">↓</span>
+                    <span class="arrow-down gold">↓</span>
+                    <span class="arrow-down" style="color: #8B4513;">↓</span>
+                </div>
+
+                <!-- Layer 2: STRIA + CORE -->
+                <div class="system-layer">
+                    <div class="system-node stria">
+                        <div class="node-icon">✓</div>
+                        <div class="node-name">STRIA</div>
+                        <div class="node-desc">Certifies</div>
+                        <div class="node-hover-info">
+                            <p>Verification layer. Certifies ethical origin, ESG compliance, and chain of custody at the source.</p>
+                        </div>
+                    </div>
+                    <div class="system-node core">
+                        <div class="node-icon">◈</div>
+                        <div class="node-name">CORE</div>
+                        <div class="node-desc">Tokenizes</div>
+                        <div class="node-hover-info">
+                            <p>Tokenization engine. Creates immutable digital records for physical assets — mined or unmined.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Arrows down -->
+                <div class="system-arrows">
+                    <span class="arrow-down emerald">↓</span>
+                    <span class="arrow-down gold">↓</span>
+                </div>
+
+                <!-- Layer 3: MineralTrace -->
+                <div class="system-layer">
+                    <div class="system-node mineraltrace">
+                        <div class="node-icon">⛏️</div>
+                        <div class="node-name">MineralTrace</div>
+                        <div class="node-desc">Connects & transacts</div>
+                        <div class="node-hover-info">
+                            <p>B2B marketplace. Connects STRIA-certified mines with jewelers and manufacturers. Where supply meets demand.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Converge to Alchemy -->
+                <div class="system-converge">
+                    <div class="converge-container">
+                        <div class="converge-lines"></div>
+                        <span class="converge-center">↓</span>
+                    </div>
+                </div>
+
+                <!-- Layer 4: ALCHEMY (center, glowing) -->
+                <div class="system-layer">
+                    <div class="system-node alchemy">
+                        <div class="node-icon">✦</div>
+                        <div class="node-name">ALCHEMY</div>
+                        <div class="node-desc">Transforms</div>
+                        <div class="node-hover-info">
+                            <p>Where raw becomes precious. The transformation layer — craft, luxury brands, makers, AI try-ons, auctions.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Arrow down -->
+                <div class="system-arrows">
+                    <span class="arrow-down gold">↓</span>
+                </div>
+
+                <!-- Layer 5: NextHeir -->
+                <div class="system-layer">
+                    <div class="system-node nextheir">
+                        <div class="node-icon">♦</div>
+                        <div class="node-name">NextHeir</div>
+                        <div class="node-desc">Preserves</div>
+                        <div class="node-hover-info">
+                            <p>Legacy layer. Preserves what matters — stories, memories, meaning. From wedding rings to memorial vaults.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Diverge to outputs -->
+                <div class="system-diverge">
+                    <div class="diverge-container">
+                        <div class="diverge-lines"></div>
+                        <div class="diverge-center"></div>
+                        <div class="diverge-arrows">
+                            <span>↓</span>
+                            <span>↓</span>
+                            <span>↓</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Layer 6: Outputs -->
+                <div class="system-layer">
+                    <div class="system-node output">
+                        <div class="node-icon">🤝</div>
+                        <div class="node-name">Partners</div>
+                        <div class="node-desc">Distribution</div>
+                        <div class="node-hover-info">
+                            <p>Wedding photographers, funeral homes, jewelers, estate attorneys — the last mile to consumers.</p>
+                        </div>
+                    </div>
+                    <div class="system-node output">
+                        <div class="node-icon">👤</div>
+                        <div class="node-name">Consumer</div>
+                        <div class="node-desc">End user</div>
+                        <div class="node-hover-info">
+                            <p>Families, collectors, couples. The people who receive verified provenance and preserved legacy.</p>
+                        </div>
+                    </div>
+                    <div class="system-node output">
+                        <div class="node-icon">$</div>
+                        <div class="node-name">Revenue</div>
+                        <div class="node-desc">Value capture</div>
+                        <div class="node-hover-info">
+                            <p>Transaction fees, subscriptions, platform access, white-label licensing. The flywheel sustains itself.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
