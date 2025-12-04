@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element United — Ecosystem</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Golds */
+            --gold: #B8860B;
+            --gold-light: #D4AF37;
+            --gold-dark: #8B6914;
+            --gold-glow: rgba(212, 175, 55, 0.3);
+            
+            /* Emerald - STRIA */
+            --emerald: #2E5A4C;
+            --emerald-light: #4A7C6B;
+            --emerald-glow: rgba(46, 90, 76, 0.5);
+            
+            /* Burgundy - NextHeir */
+            --burgundy: #722F37;
+            --burgundy-dark: #4A1C23;
+            
+            /* Neutrals */
+            --champagne: #F7E7CE;
+            --cream: #FDF5E6;
+            --noir: #0A0A0A;
+            --velvet: #121212;
+            --smoke: #1E1E1E;
+            --slate: #2A2A2A;
+            --text-muted: #9A8F80;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background: var(--noir); 
+            color: var(--cream); 
+            line-height: 1.7;
+        }
+
+        /* Grain overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.02;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .serif { font-family: 'Cormorant Garamond', serif; }
+
+        /* Header */
+        .header {
+            background: linear-gradient(180deg, rgba(10, 10, 10, 0.95) 0%, rgba(18, 18, 18, 0.9) 100%);
+            backdrop-filter: blur(20px);
+            padding: 1.5rem 2rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--gold-dark);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dark) 100%);
+            border-radius: 8px;
+            box-shadow: 0 0 30px var(--gold-glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--noir);
+            font-size: 0.8rem;
+        }
+
+        .logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--cream);
+            font-size: 1.5rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+        }
+
+        .header-badge {
+            font-size: 0.65rem;
+            padding: 0.4rem 0.8rem;
+            background: linear-gradient(135deg, var(--velvet) 0%, var(--smoke) 100%);
+            border: 1px solid var(--gold-dark);
+            border-radius: 4px;
+            color: var(--gold-light);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 10rem 2rem 6rem;
+            position: relative;
+            background: linear-gradient(180deg, var(--noir) 0%, var(--velvet) 50%, var(--noir) 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(212,175,55,0.1) 0%, transparent 60%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+
+        .hero-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 300;
+            color: var(--cream);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-title em {
+            font-style: italic;
+            color: var(--gold-light);
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* Section Base */
+        .section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 300;
+            color: var(--cream);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1rem;
+        }
+
+        /* The Chain Section */
+        .chain-section {
+            background: linear-gradient(180deg, var(--noir) 0%, var(--velvet) 100%);
+        }
+
+        .chain-flow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .chain-node {
+            width: 100%;
+            position: relative;
+        }
+
+        .chain-card {
+            background: linear-gradient(135deg, var(--velvet) 0%, var(--smoke) 100%);
+            border: 1px solid var(--slate);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .chain-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at top right, rgba(255,255,255,0.03) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .chain-card:hover {
+            transform: translateX(8px);
+            border-color: var(--gold-dark);
+        }
+
+        .chain-card.stria {
+            background: linear-gradient(135deg, var(--velvet) 0%, var(--emerald) 100%);
+            border-color: var(--emerald-light);
+        }
+
+        .chain-card.stria:hover { border-color: var(--emerald-light); }
+
+        .chain-card.core {
+            background: linear-gradient(135deg, var(--velvet) 0%, var(--smoke) 100%);
+            border-color: var(--gold-dark);
+        }
+
+        .chain-card.mineraltrace {
+            background: linear-gradient(135deg, var(--velvet) 0%, var(--emerald) 100%);
+            border-color: var(--emerald-light);
+        }
+
+        .chain-card.alchemy {
+            background: linear-gradient(135deg, var(--velvet) 0%, var(--smoke) 100%);
+            border-color: var(--gold);
+            box-shadow: 0 0 40px var(--gold-glow);
+        }
+
+        .chain-card.nextheir {
+            background: linear-gradient(135deg, var(--velvet) 0%, var(--burgundy-dark) 100%);
+            border-color: var(--burgundy);
+        }
+
+        .chain-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .chain-icon.stria {
+            background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-light) 100%);
+            border: 2px solid var(--emerald-light);
+            color: var(--cream);
+            box-shadow: 0 0 20px var(--emerald-glow);
+        }
+
+        .chain-icon.core {
+            background: var(--smoke);
+            border: 2px solid var(--gold-light);
+            color: var(--gold-light);
+        }
+
+        .chain-icon.mineraltrace {
+            background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-light) 100%);
+            color: var(--cream);
+        }
+
+        .chain-icon.alchemy {
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-light) 100%);
+            color: var(--noir);
+            box-shadow: 0 0 20px var(--gold-glow);
+        }
+
+        .chain-icon.nextheir {
+            background: linear-gradient(135deg, var(--burgundy-dark) 0%, var(--burgundy) 100%);
+            color: var(--cream);
+        }
+
+        .chain-text h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--cream);
+            margin-bottom: 0.25rem;
+            letter-spacing: 0.05em;
+        }
+
+        .chain-text p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .chain-arrow {
+            text-align: center;
+            color: var(--gold-dark);
+            font-size: 1.5rem;
+            padding: 0.5rem 0;
+            opacity: 0.6;
+        }
+
+        /* The Chain Divider */
+        .chain-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 4rem 0;
+            gap: 2rem;
+        }
+
+        .chain-divider-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--gold-dark), transparent);
+        }
+
+        .chain-divider-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            color: var(--gold-light);
+            font-style: italic;
+            white-space: nowrap;
+        }
+
+        /* Gateways Section */
+        .gateways-section {
+            background: linear-gradient(180deg, var(--velvet) 0%, var(--noir) 50%, var(--velvet) 100%);
+        }
+
+        .gateways-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, var(--emerald-glow) 0%, transparent 60%);
+            opacity: 0.1;
+        }
+
+        .gateways-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            position: relative;
+        }
+
+        .gateway-card {
+            background: linear-gradient(135deg, var(--velvet) 0%, var(--smoke) 100%);
+            border: 1px solid var(--slate);
+            border-radius: 16px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .gateway-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at top right, rgba(255,255,255,0.05) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .gateway-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--gold);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3), 0 0 30px var(--gold-glow);
+        }
+
+        .gateway-card.offset {
+            border-color: var(--emerald);
+        }
+        .gateway-card.offset:hover { border-color: var(--emerald-light); box-shadow: 0 15px 50px rgba(0,0,0,0.3), 0 0 30px var(--emerald-glow); }
+
+        .gateway-card.store {
+            border-color: var(--gold-dark);
+        }
+
+        .gateway-card.nextheir-gateway {
+            border-color: var(--burgundy);
+        }
+        .gateway-card.nextheir-gateway:hover { border-color: var(--burgundy); box-shadow: 0 15px 50px rgba(0,0,0,0.3), 0 0 30px rgba(114, 47, 55, 0.4); }
+
+        .gateway-card.mineraltrace-gateway {
+            border-color: var(--emerald);
+        }
+
+        .gateway-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .gateway-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .gateway-icon.offset { background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-light) 100%); }
+        .gateway-icon.store { background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-light) 100%); }
+        .gateway-icon.nextheir { background: linear-gradient(135deg, var(--burgundy-dark) 0%, var(--burgundy) 100%); }
+        .gateway-icon.mineraltrace { background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-light) 100%); }
+
+        .gateway-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--cream);
+        }
+
+        .gateway-tagline {
+            font-size: 0.8rem;
+            color: var(--gold-light);
+            font-style: italic;
+        }
+
+        .gateway-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+            line-height: 1.6;
+        }
+
+        .gateway-serves {
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .gateway-serves-label {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.5rem;
+        }
+
+        .serves-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .serves-tag {
+            background: rgba(255,255,255,0.08);
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            color: var(--champagne);
+        }
+
+        /* Audience Section */
+        .audience-section {
+            background: linear-gradient(180deg, var(--velvet) 0%, var(--noir) 100%);
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .audience-card {
+            background: linear-gradient(135deg, var(--smoke) 0%, var(--slate) 100%);
+            border: 1px solid var(--slate);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .audience-card:hover {
+            border-color: var(--gold-dark);
+            transform: translateY(-2px);
+        }
+
+        .audience-emoji {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .audience-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            color: var(--cream);
+            margin-bottom: 0.5rem;
+        }
+
+        .audience-plugs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+            justify-content: center;
+        }
+
+        .plug-tag {
+            font-size: 0.6rem;
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .plug-tag.stria { background: var(--emerald); color: var(--cream); }
+        .plug-tag.core { background: var(--smoke); color: var(--gold-light); border: 1px solid var(--gold-dark); }
+        .plug-tag.mineraltrace { background: var(--emerald); color: var(--cream); }
+        .plug-tag.alchemy { background: var(--gold-dark); color: var(--noir); }
+        .plug-tag.nextheir { background: var(--burgundy-dark); color: var(--cream); }
+        .plug-tag.offset { background: var(--emerald); color: var(--cream); }
+        .plug-tag.store { background: var(--gold-dark); color: var(--noir); }
+
+        /* Tagline Section */
+        .tagline-section {
+            padding: 8rem 2rem;
+            background: linear-gradient(180deg, var(--noir) 0%, var(--velvet) 30%, var(--emerald) 70%, var(--noir) 100%);
+            text-align: center;
+            position: relative;
+        }
+
+        .tagline-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(212,175,55,0.15) 0%, transparent 50%);
+        }
+
+        .tagline-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(to top, var(--noir) 0%, transparent 100%);
+        }
+
+        .tagline-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .tagline-statement {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 300;
+            color: var(--cream);
+            line-height: 1.4;
+            margin-bottom: 2rem;
+        }
+
+        .tagline-statement em {
+            font-style: italic;
+            color: var(--gold-light);
+        }
+
+        .tagline-sub {
+            font-size: 1rem;
+            color: var(--text-muted);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 3rem 2rem;
+            background: var(--noir);
+            text-align: center;
+            border-top: 1px solid var(--gold-dark);
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--gold-light), transparent);
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--cream);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.1em;
+        }
+
+        .footer-tagline {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-products {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-product {
+            font-size: 0.75rem;
+            color: var(--gold-light);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.3s;
+        }
+
+        .footer-product:hover {
+            color: var(--cream);
+        }
+
+        .footer-bottom {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .gateways-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .audience-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .audience-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-products {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo">EU</div>
+                <span class="logo-text">Element United</span>
+            </div>
+            <span class="header-badge">Ecosystem Overview</span>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-label">Trust Infrastructure</p>
+            <h1 class="hero-title">The <em>Element United</em> Ecosystem</h1>
+            <p class="hero-subtitle">One chain. Many doors. Verified value from source to sovereign — for everyone who touches it.</p>
+        </div>
+    </section>
+
+    <!-- The Chain -->
+    <section class="section chain-section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">The Provenance Chain</p>
+                <h2 class="section-title">The Story of an Asset</h2>
+                <p class="section-subtitle">From certification to preservation. Every step verified.</p>
+            </div>
+
+            <div class="chain-flow">
+                <div class="chain-node">
+                    <div class="chain-card stria">
+                        <div class="chain-icon stria">S</div>
+                        <div class="chain-text">
+                            <h4>STRIA</h4>
+                            <p>Certifies at source — ethics, origin, compliance</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="chain-arrow">↓</div>
+                <div class="chain-node">
+                    <div class="chain-card core">
+                        <div class="chain-icon core">C</div>
+                        <div class="chain-text">
+                            <h4>CORE</h4>
+                            <p>Tokenizes assets — mined or unmined</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="chain-arrow">↓</div>
+                <div class="chain-node">
+                    <div class="chain-card mineraltrace">
+                        <div class="chain-icon mineraltrace">MT</div>
+                        <div class="chain-text">
+                            <h4>MineralTrace</h4>
+                            <p>Connects & transacts — B2B marketplace</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="chain-arrow">↓</div>
+                <div class="chain-node">
+                    <div class="chain-card alchemy">
+                        <div class="chain-icon alchemy">A</div>
+                        <div class="chain-text">
+                            <h4>ALCHEMY</h4>
+                            <p>Transforms to product — the sacred middle</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="chain-arrow">↓</div>
+                <div class="chain-node">
+                    <div class="chain-card nextheir">
+                        <div class="chain-icon nextheir">N</div>
+                        <div class="chain-text">
+                            <h4>NextHeir</h4>
+                            <p>Preserves the story — legacy forever</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chain-divider">
+                <div class="chain-divider-line"></div>
+                <span class="chain-divider-text">The chain is the story. The gateways are how you enter.</span>
+                <div class="chain-divider-line"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gateways -->
+    <section class="section gateways-section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Entry Points</p>
+                <h2 class="section-title">The Gateways</h2>
+                <p class="section-subtitle">Different doors for different journeys. All roads lead to verified trust.</p>
+            </div>
+
+            <div class="gateways-grid">
+                <div class="gateway-card offset">
+                    <div class="gateway-header">
+                        <div class="gateway-icon offset">🌱</div>
+                        <div>
+                            <h3 class="gateway-title">Offset</h3>
+                            <p class="gateway-tagline">Do good. Learn. Start here.</p>
+                        </div>
+                    </div>
+                    <p class="gateway-desc">Carbon verification, education, the book, the bracelet. The values-driven entry point for conscious consumers.</p>
+                    <div class="gateway-serves">
+                        <p class="gateway-serves-label">For</p>
+                        <div class="serves-tags">
+                            <span class="serves-tag">Consumers</span>
+                            <span class="serves-tag">Partners</span>
+                            <span class="serves-tag">Learners</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gateway-card store">
+                    <div class="gateway-header">
+                        <div class="gateway-icon store">🪙</div>
+                        <div>
+                            <h3 class="gateway-title">Store</h3>
+                            <p class="gateway-tagline">Own real assets.</p>
+                        </div>
+                    </div>
+                    <p class="gateway-desc">Gold, silver, goldbacks — verified and ready. The asset door for collectors and investors.</p>
+                    <div class="gateway-serves">
+                        <p class="gateway-serves-label">For</p>
+                        <div class="serves-tags">
+                            <span class="serves-tag">Investors</span>
+                            <span class="serves-tag">Collectors</span>
+                            <span class="serves-tag">Preppers</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gateway-card mineraltrace-gateway">
+                    <div class="gateway-header">
+                        <div class="gateway-icon mineraltrace">⛏️</div>
+                        <div>
+                            <h3 class="gateway-title">MineralTrace</h3>
+                            <p class="gateway-tagline">Connect. Transact. Invest.</p>
+                        </div>
+                    </div>
+                    <p class="gateway-desc">B2B marketplace for mines and jewelers. Plus investment opportunities for individuals (SEC-pending).</p>
+                    <div class="gateway-serves">
+                        <p class="gateway-serves-label">For</p>
+                        <div class="serves-tags">
+                            <span class="serves-tag">Mines</span>
+                            <span class="serves-tag">Jewelers</span>
+                            <span class="serves-tag">Investors</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gateway-card nextheir-gateway">
+                    <div class="gateway-header">
+                        <div class="gateway-icon nextheir">💎</div>
+                        <div>
+                            <h3 class="gateway-title">NextHeir</h3>
+                            <p class="gateway-tagline">Preserve what matters.</p>
+                        </div>
+                    </div>
+                    <p class="gateway-desc">Weddings, memorials, family vaults. The emotional door for milestones and legacy preservation.</p>
+                    <div class="gateway-serves">
+                        <p class="gateway-serves-label">For</p>
+                        <div class="serves-tags">
+                            <span class="serves-tag">Families</span>
+                            <span class="serves-tag">Couples</span>
+                            <span class="serves-tag">Collectors</span>
+                            <span class="serves-tag">Funeral Homes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who Plugs In -->
+    <section class="section audience-section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Modular By Design</p>
+                <h2 class="section-title">Who Plugs In Where</h2>
+                <p class="section-subtitle">Pick what you need. Use what serves you.</p>
+            </div>
+
+            <div class="audience-grid">
+                <div class="audience-card">
+                    <div class="audience-emoji">⛏️</div>
+                    <h4 class="audience-name">Mines</h4>
+                    <div class="audience-plugs">
+                        <span class="plug-tag stria">STRIA</span>
+                        <span class="plug-tag mineraltrace">MineralTrace</span>
+                    </div>
+                </div>
+                <div class="audience-card">
+                    <div class="audience-emoji">💍</div>
+                    <h4 class="audience-name">Jewelers</h4>
+                    <div class="audience-plugs">
+                        <span class="plug-tag mineraltrace">MineralTrace</span>
+                        <span class="plug-tag nextheir">NextHeir</span>
+                    </div>
+                </div>
+                <div class="audience-card">
+                    <div class="audience-emoji">👑</div>
+                    <h4 class="audience-name">Luxury Brands</h4>
+                    <div class="audience-plugs">
+                        <span class="plug-tag alchemy">Alchemy</span>
+                        <span class="plug-tag nextheir">NextHeir</span>
+                    </div>
+                </div>
+                <div class="audience-card">
+                    <div class="audience-emoji">🏦</div>
+                    <h4 class="audience-name">Banks & Insurers</h4>
+                    <div class="audience-plugs">
+                        <span class="plug-tag stria">STRIA</span>
+                    </div>
+                </div>
+                <div class="audience-card">
+                    <div class="audience-emoji">🌍</div>
+                    <h4 class="audience-name">Land Stewards</h4>
+                    <div class="audience-plugs">
+                        <span class="plug-tag core">CORE</span>
+                        <span class="plug-tag stria">STRIA</span>
+                    </div>
+                </div>
+                <div class="audience-card">
+                    <div class="audience-emoji">👨‍👩‍👧</div>
+                    <h4 class="audience-name">Families</h4>
+                    <div class="audience-plugs">
+                        <span class="plug-tag nextheir">NextHeir</span>
+                        <span class="plug-tag offset">Offset</span>
+                    </div>
+                </div>
+                <div class="audience-card">
+                    <div class="audience-emoji">🔗</div>
+                    <h4 class="audience-name">Blockchain / Tech</h4>
+                    <div class="audience-plugs">
+                        <span class="plug-tag core">CORE</span>
+                    </div>
+                </div>
+                <div class="audience-card">
+                    <div class="audience-emoji">💚</div>
+                    <h4 class="audience-name">Conscious Consumers</h4>
+                    <div class="audience-plugs">
+                        <span class="plug-tag offset">Offset</span>
+                        <span class="plug-tag store">Store</span>
+                    </div>
+                </div>
+                <div class="audience-card">
+                    <div class="audience-emoji">🤝</div>
+                    <h4 class="audience-name">B2B Partners</h4>
+                    <div class="audience-plugs">
+                        <span class="plug-tag stria">STRIA</span>
+                        <span class="plug-tag mineraltrace">MT</span>
+                        <span class="plug-tag alchemy">Alchemy</span>
+                        <span class="plug-tag nextheir">NextHeir</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tagline -->
+    <section class="tagline-section">
+        <div class="tagline-content">
+            <p class="tagline-statement">
+                We verify <em>value</em> —<br>
+                from the ground it comes from<br>
+                to the generations it goes to.
+            </p>
+            <p class="tagline-sub">One ecosystem. Many doors. Verified trust at every step.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-logo">Element United</div>
+        <p class="footer-tagline">Trust infrastructure from source to sovereign.</p>
+        <div class="footer-products">
+            <a href="#" class="footer-product">STRIA</a>
+            <a href="#" class="footer-product">CORE</a>
+            <a href="#" class="footer-product">MineralTrace</a>
+            <a href="#" class="footer-product">Alchemy</a>
+            <a href="#" class="footer-product">NextHeir</a>
+            <a href="#" class="footer-product">Offset</a>
+            <a href="#" class="footer-product">Store</a>
+        </div>
+        <p class="footer-bottom">© 2025 Element United. All rights reserved.</p>
+    </footer>
+</body>
+</html>
