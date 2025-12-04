@@ -664,6 +664,139 @@
         .plug-tag.store { background: var(--gold-dark); color: var(--noir); }
         .plug-tag.gca { background: #8B4513; color: var(--cream); }
 
+        /* NextHeir Partners Section */
+        .partners-section {
+            background: linear-gradient(180deg, var(--noir) 0%, var(--burgundy-dark) 50%, var(--noir) 100%);
+            position: relative;
+        }
+
+        .partners-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(114, 47, 55, 0.3) 0%, transparent 60%);
+        }
+
+        .partners-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            position: relative;
+        }
+
+        .partners-intro p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            position: relative;
+        }
+
+        .partner-card {
+            background: linear-gradient(135deg, var(--velvet) 0%, var(--burgundy-dark) 100%);
+            border: 1px solid var(--burgundy);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .partner-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at top right, rgba(255,255,255,0.05) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .partner-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3), 0 0 20px var(--gold-glow);
+        }
+
+        .partner-emoji {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .partner-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            color: var(--cream);
+            margin-bottom: 0.5rem;
+        }
+
+        .partner-desc {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .partner-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .flow-box {
+            background: linear-gradient(135deg, var(--velvet) 0%, var(--smoke) 100%);
+            border: 1px solid var(--slate);
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            text-align: center;
+        }
+
+        .flow-box.partners {
+            border-color: var(--burgundy);
+            background: linear-gradient(135deg, var(--velvet) 0%, var(--burgundy-dark) 100%);
+        }
+
+        .flow-box.nextheir {
+            border-color: var(--burgundy);
+            background: linear-gradient(135deg, var(--burgundy-dark) 0%, var(--burgundy) 100%);
+            box-shadow: 0 0 30px rgba(114, 47, 55, 0.4);
+        }
+
+        .flow-box.consumer {
+            border-color: var(--gold-dark);
+        }
+
+        .flow-box-label {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.25rem;
+        }
+
+        .flow-box-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            color: var(--cream);
+        }
+
+        .flow-arrow {
+            color: var(--gold-dark);
+            font-size: 1.5rem;
+        }
+
         /* Tagline Section */
         .tagline-section {
             padding: 8rem 2rem;
@@ -786,6 +919,18 @@
                 grid-template-columns: 1fr;
             }
             
+            .partners-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .partner-flow {
+                flex-direction: column;
+            }
+            
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+            
             .audience-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -797,6 +942,10 @@
 
         @media (max-width: 600px) {
             .audience-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .partners-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -1132,6 +1281,82 @@
                         <span class="plug-tag alchemy">Alchemy</span>
                         <span class="plug-tag nextheir">NextHeir</span>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NextHeir Partners -->
+    <section class="section partners-section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">NextHeir Distribution</p>
+                <h2 class="section-title">Partner Network</h2>
+                <p class="section-subtitle">The last mile to legacy. Partners who bring NextHeir to life's moments.</p>
+            </div>
+
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <div class="partner-emoji">📸</div>
+                    <h4 class="partner-name">Wedding Photographers</h4>
+                    <p class="partner-desc">Capture the day. Offer the vault. Couples preserve the story.</p>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-emoji">💍</div>
+                    <h4 class="partner-name">Jewelry Stores</h4>
+                    <p class="partner-desc">Sell the ring. Include provenance. Legacy starts at purchase.</p>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-emoji">🕯️</div>
+                    <h4 class="partner-name">Funeral Homes</h4>
+                    <p class="partner-desc">Honor the life. Preserve the memory. Grief becomes legacy.</p>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-emoji">⚖️</div>
+                    <h4 class="partner-name">Estate Attorneys</h4>
+                    <p class="partner-desc">Plan the transfer. Document the meaning. Inheritance with story.</p>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-emoji">🛡️</div>
+                    <h4 class="partner-name">Insurance Agents</h4>
+                    <p class="partner-desc">Insure the asset. Verify provenance. Claims with proof.</p>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-emoji">⭐</div>
+                    <h4 class="partner-name">Celebrity Estates</h4>
+                    <p class="partner-desc">Manage the legacy. Preserve the icon. Fans access the story.</p>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-emoji">🔌</div>
+                    <h4 class="partner-name">EOL Platforms</h4>
+                    <p class="partner-desc">Tech integration. API access. End-of-life meets digital legacy.</p>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-emoji">🏛️</div>
+                    <h4 class="partner-name">Cultural Institutions</h4>
+                    <p class="partner-desc">Museums, archives, heritage. Preservation at scale.</p>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-emoji">🤝</div>
+                    <h4 class="partner-name">White Label Partners</h4>
+                    <p class="partner-desc">Your brand. Our infrastructure. NextHeir under the hood.</p>
+                </div>
+            </div>
+
+            <div class="partner-flow">
+                <div class="flow-box partners">
+                    <p class="flow-box-label">Partners</p>
+                    <p class="flow-box-title">Life Moments</p>
+                </div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-box nextheir">
+                    <p class="flow-box-label">Platform</p>
+                    <p class="flow-box-title">NextHeir</p>
+                </div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-box consumer">
+                    <p class="flow-box-label">Outcome</p>
+                    <p class="flow-box-title">Legacy Preserved</p>
                 </div>
             </div>
         </div>
